@@ -63,7 +63,7 @@ res.to_csv('filter_a.csv', index=False)
 
 # Q1 filter_b.csv
 total_number = len(df_all.index)
-parking_number = df_all['交易筆棟數'].str.slice(start=-1).astype(int).sum()
+parking_number = df_all['交易筆棟數'].str.split("車位", expand=True)[1].astype(int).sum()
 total_price_mean = df_all['總價元'].astype(int).mean()
 parking_price_mean = df_all['車位總價元'].astype(int).sum()/parking_number
 
